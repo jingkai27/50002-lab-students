@@ -44,15 +44,7 @@ MPD3 z noro 0 0 NENH sw=2 sl=1
 .subckt xnor2 a b z
 * Build your own xnor gate here
 * BEGIN ANSWER
-XGATE a b nandout nand2
 
-MPU1 z nandout vdd vdd PENH sw=4 sl=1
-MPU2 q b vdd vdd PENH sw=4 sl=1
-MPU3 z a q vdd PENH sw=4 sl=1
-
-MPD1 z nandout p 0 NENH sw=2 sl=1
-MPD2 p b 0 0 NENH sw=2 sl=1 
-MPD3 p a 0 0 NENH sw=2 sl=1
 
 *END ANSWER
 .ends

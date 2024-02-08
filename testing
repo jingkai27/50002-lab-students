@@ -1,4 +1,4 @@
-.include "lab2adder4checkoff.jsim"
+.include "8clocks.jsim"
 .include "nominal.jsim"
 
 * 2-input nand: inputs are a and b, output is z
@@ -57,27 +57,12 @@ MPD3 p a 0 0 NENH sw=2 sl=1
 *END ANSWER
 .ends
 
+Xtestxor clk1 clk2 xor_out xor2 
+Xtestxnor clk1 clk2 xnor_out xnor2
 
-* FA: 1-bit Full Adder circuit
-* Input: a, b, ci 
-* Output: s, co
-.subckt FA a b ci s co
-* write your FA circuitry here
-* BEGIN ANSWER
+.tran 40ns 
 
-
-
-
-
-
-*END ANSWER
-.ends
-
-
-.subckt ADDER4 a3 a2 a1 a0 b3 b2 b1 b0 s4 s3 s2 s1 s0
-Xbit0 a0 b0 0 s0 c0 FA
-Xbit1 a1 b1 c0 s1 c1 FA
-Xbit2 a2 b2 c1 s2 c2 FA
-Xbit3 a3 b3 c2 s3 s4 FA
-.ends
-
+.plot L(clk1)
+.plot L(clk2)
+.plot L(xor_out)
+.plot L(xnor_out)
