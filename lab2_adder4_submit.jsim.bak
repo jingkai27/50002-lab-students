@@ -44,7 +44,15 @@ MPD3 z noro 0 0 NENH sw=2 sl=1
 .subckt xnor2 a b z
 * Build your own xnor gate here
 * BEGIN ANSWER
+XGATE a b nandout nand2
 
+MPU1 z nandout vdd vdd PENH sw=4 sl=1
+MPU2 q b vdd vdd PENH sw=4 sl=1
+MPU3 z a q vdd PENH sw=4 sl=1
+
+MPD1 z nandout p 0 NENH sw=2 sl=1
+MPD2 p b 0 0 NENH sw=2 sl=1 
+MPD3 p a 0 0 NENH sw=2 sl=1
 
 *END ANSWER
 .ends
@@ -57,10 +65,14 @@ MPD3 z noro 0 0 NENH sw=2 sl=1
 * write your FA circuitry here
 * BEGIN ANSWER
 
-
-
-
-
+XxorS1 a b sum1 xor2
+XandS1 a b invC1 nand2
+XinvS1 invC1 carry1 inv
+XxorS2 sum1 ci s xor2
+XandS2 sum1 ci invC2 nand2
+XinvS2 invC2 carry2 inv
+XorS1 carry1 carry2 invco nor2
+XinvS3 invco co inv
 
 *END ANSWER
 .ends
